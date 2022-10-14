@@ -3,7 +3,7 @@ const TABS = document.getElementById('tabs')
 async function getAllTab() {
     let queryOptions = {populate:true};
     // `tab` will either be a `tabs.Tab` instance or `undefined`.
-    let [tabs] = await chrome.windows.getAll(queryOptions)
+    let tabs = await chrome.windows.getLastFocused(queryOptions)
     return tabs;
 }
 
