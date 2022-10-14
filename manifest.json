@@ -1,0 +1,14 @@
+{
+  "name": "SaveAsSession",
+  "version": "0.1.0",
+  "description": "Saving tabs as a group when closing browser",
+  "permissions": ["storage", "tabs"],
+  "icons": {
+    "48": "./assets/ext-icon.svg"
+  },
+  "action": {
+    "default_title": "Save As Session",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
