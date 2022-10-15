@@ -1,5 +1,3 @@
-const TABS = document.getElementById('tabs')
-
 async function getAllTab() {
     let queryOptions = {populate:true};
     // `tab` will either be a `tabs.Tab` instance or `undefined`.
@@ -8,13 +6,21 @@ async function getAllTab() {
 }
 
 async function listTabs() {
+    let sessionObject = []
     await getAllTab().then( tabs => {
         tabs.tabs.forEach(tab => {
-            var li = document.createElement("li");
-            li.innerHTML = tab.url
-            TABS.appendChild(li)
+            sessionObject.push({"title": tab.title, "url": tab.url})
+        });
+    })
+    return sessionObject
+}
+
+async function saveSession(sessionName) {
+    listTabs().then(d => {
+        chrome.storage.local.set({sessionName: d}, function() {
+            console.log('Settings saved', {sessionName: d});
         });
     })
 }
 
-listTabs()
+saveSession('test')
