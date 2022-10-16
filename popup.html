@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./popup.css">
-    </head>
-    <body>
-        <div class="session_lists">
-            <div class="panel">
-                <div class="hamburger"></div>
-                <div class="title">STAS</div>
-                <div class="session_add">+</div>
-            </div>
-            <div class="session_list"></div>
-            <div class="placeholder">Currently no sessions saved.</div>
+<head>
+    <link rel="stylesheet" href="./assets/css/popup.css">
+</head>
+<body>
+    <nav class="nav-menu">
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-        <script src="./popup.js"></script>
-    </body>
+        <div class="title">STAS</div>
+        <div class="plus">+</div>
+    </nav>
+    <ul class="session_list" id="session_list">
+    </ul>
+    <script src="./assets/js/popup.js"></script>
+</body>
 </html>
