@@ -29,7 +29,13 @@ async function listSessions() {
     })
 }
 
-function renderSession(sessionName)
+function renderSession(sessionName) {
+    let session_list = document.getElementById('session_list')
+    console.log(session_list);
+    let li = document.createElement("li")
+    li.innerHTML = `<li class="session"><div class="session_title" onclick="rebootSession(${sessionName})">${sessionName}</div><div class="session_delete" onclick="deleteSession("${sessionName}")">X</div></li>`
+    session_list.appendChild(li)
+}
 
 saveSession('test')
 console.log(listSessions())
