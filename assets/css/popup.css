@@ -72,3 +72,18 @@ body {
     text-overflow: ellipsis;
     cursor: pointer;
 }
+
+.session_delete {
+    cursor: pointer;
+}
+
+.message {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}

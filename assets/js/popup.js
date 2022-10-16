@@ -1,7 +1,15 @@
+let messageDiv = document.getElementById('message') 
+
 function addSession() {
     sessionName = prompt('Add current tabs to session')
     saveSession(sessionName)
     console.log('session save started');
+}
+
+function renderMessage(m) {
+    let message = `<p>${m}</p>`
+    messageDiv.innerHTML = message;
+    messageDiv.style.visibility = 'visible';
 }
 
 async function getAllTab() {
@@ -46,9 +54,14 @@ async function listSessions() {
     let sessionNames = []
     await chrome.storage.local.get().then(dict => {
         sessionNames = Object.keys(dict)
-        sessionNames.forEach(sessionName => {
-            renderSession(sessionName)
-        })
+        if (sessionNames.length > 0) {
+            messageDiv.style.visibility = 'hidden';
+            sessionNames.forEach(sessionName => {
+                renderSession(sessionName)
+            })
+        } else {
+            renderMessage('Currently No sessions Saved')
+        }
     })
 }
 
@@ -64,11 +77,10 @@ function renderSession(sessionName) {
     document.getElementById(`delete-${sessionName}`).addEventListener('click', () => {
         deleteSession(`${sessionName}`)
     })
-    document.getElementById("addSession").addEventListener('click', () => {
-        addSession()
-    });
 
     // document.getElementById(`delete-${sessionName}`).addEventListener('click', removeSession(`${sessionName}`))
 }
+
+document.getElementById("addSession").addEventListener('click', addSession);
 
 listSessions()
