@@ -1,5 +1,3 @@
-document.getElementById("addSession").addEventListener('click', addSession);
-
 function addSession() {
     sessionName = prompt('Add current tabs to session')
     saveSession(sessionName)
@@ -24,6 +22,12 @@ async function rebootSession(sessionName) {
     chrome.windows.create({url: sessionUrls})
 }
 
+function deleteSession(sessionName) {
+    chrome.storage.local.remove([sessionName]).then(() => {
+        listSessions()
+    })
+}
+
 async function saveSession(sessionName) {
     let sessionList = []
     await getAllTab().then( tabs => {
@@ -34,9 +38,11 @@ async function saveSession(sessionName) {
     await chrome.storage.local.set({[sessionName]: sessionList}, function() {
         console.log('Session saved', {[sessionName]: sessionList});
     });
+    listSessions()
 }
 
 async function listSessions() {
+    document.getElementById('session_list').innerHTML = ''
     let sessionNames = []
     await chrome.storage.local.get().then(dict => {
         sessionNames = Object.keys(dict)
@@ -55,6 +61,13 @@ function renderSession(sessionName) {
     document.getElementById(`title-${sessionName}`).addEventListener('click', () => {
         rebootSession(`${sessionName}`)
     })
+    document.getElementById(`delete-${sessionName}`).addEventListener('click', () => {
+        deleteSession(`${sessionName}`)
+    })
+    document.getElementById("addSession").addEventListener('click', () => {
+        addSession()
+    });
+
     // document.getElementById(`delete-${sessionName}`).addEventListener('click', removeSession(`${sessionName}`))
 }
 
