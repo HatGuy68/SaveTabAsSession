@@ -85,12 +85,12 @@ background-color: #f1f1f1;
 .sidebar .closebtn {
 position: absolute;
 top: 0;
-right: 25px;
+left: 60px;
 font-size: 36px;
 margin-left: 50px;
 }
 
-.sidebar-footer{
+.sidebar-footer {
     position: absolute;
     bottom: 0;
     /* align-items: center; */
@@ -98,12 +98,10 @@ margin-left: 50px;
     background-color: #212424;
 }
 
-.sidebar-footer a{
+.sidebar-footer a {
     padding-left: 30px; /* Text is aligned to the left. To make centered, set both padding to be equal */
-    padding-right: 167px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 20px;
+    padding-right: 30px; 
+    font-size: 15px;
     transition: 0.3s;
 }
 
