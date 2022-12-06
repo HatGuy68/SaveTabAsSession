@@ -67,9 +67,9 @@ body {
   
 /* The sidebar links */
 .sidebar a {
-padding: 8px 8px 8px 32px;
+padding: 8px 8px 8px 8px;
 text-decoration: none;
-font-size: 25px;
+font-size: 20px;
 color: #818181;
 display: block;
 transition: 0.3s;
@@ -77,7 +77,8 @@ transition: 0.3s;
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-color: #f1f1f1;
+color: #191a1d;
+background-color: #f1f1f1;
 }
 
 /* Position and style the close button (top right corner) */
@@ -94,6 +95,16 @@ margin-left: 50px;
     bottom: 0;
     /* align-items: center; */
     text-align: center;
+    background-color: #212424;
+}
+
+.sidebar-footer a{
+    padding-left: 30px; /* Text is aligned to the left. To make centered, set both padding to be equal */
+    padding-right: 167px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
 /* The button used to open the sidebar */
