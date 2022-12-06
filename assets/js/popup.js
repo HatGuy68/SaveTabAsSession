@@ -1,5 +1,13 @@
 let messageDiv = document.getElementById('message') 
 
+document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('open');
+    // onClick's logic below:
+    link.addEventListener('click', function() {
+        openNav();
+    });
+});
+
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
