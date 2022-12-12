@@ -2,8 +2,12 @@ let messageDiv = document.getElementById('message')
 
 function addSession() {
     sessionName = prompt('Add current tabs to session')
-    saveSession(sessionName)
-    console.log('session save started');
+    if (sessionName) {
+        saveSession(sessionName)
+        console.log('session save started');
+    } else {
+        console.log('session not saved');
+    }
 }
 
 function renderMessage(m) {
