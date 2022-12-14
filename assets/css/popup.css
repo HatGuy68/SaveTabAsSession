@@ -5,17 +5,18 @@
 	text-decoration: none;
 	outline: none;
 	list-style: none;
+    font-size: 14px;
 }
 
 body {
-    width: 200px;
-    height: 300px;
+    width: 350px;
+    height: 500px;
     background-color: #24282d;
     color: #e4e4e4;
 }
 
 .nav-menu {
-    height: 40px;
+    height: 53px;
     position: fixed;
     background: #24282d;
     text-align: center;
@@ -29,13 +30,6 @@ body {
     border-bottom: 1px solid black;
 }
 
-.nav-menu .burger {
-    width: 40px;
-    height: 26px;
-    cursor: pointer;
-    padding-top: 7px;
-}
-
 .nav-menu .burger .line {
     width: 20px;
     height: 1px;
@@ -44,16 +38,28 @@ body {
     margin-bottom: 4px;
 }
 
+.nav-menu .burger {
+	width: 30px;
+	height: 30px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAXklEQVRYhe3UMQ6AIAxGYeLpxGsbLwL38LmQyAJhaOLg+5Iu7dB2+VOSOsAB1Fb5iwMqr9L1L+Kc/c5t8bY78s/xBDJQWu2BSyWtMQknTELpJ0zC2W2Rf44nJqE+8ACj3nijmalfeAAAAABJRU5ErkJggg==)
+}
+
 .nav-menu .plus {
-    width: 40px;
-    height: 26px;
-    cursor: pointer;
+	width: 30px;
+	height: 30px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABD0lEQVRoge2ZS07DQBBEu1CWUS5GLM4SzkAQq5wFKbDM5wCcBntf2SSSsVuIacvtjum3HM3I9aa8mLFFkiQxQfKJ5Jlkw+lpSJ5IVqUSbxMH/42tlhlaEyLybuvRjQrAR3vgQZm0cQozhOfugNZILSJLlzh2agCr9oAmQr88dgD8yK69WndJikRjdBFcGfs52Ug0UiQaKRKNFIlGikRjYVlkOXKUrLFcJf53IyU7dmti7AvbbBpJkWikSDRSJBopEo3ZiJiOKCV4fUueTSMpEg1NpHFPUc53d0AT+XIIMpReRk1k5xBkKL2MPREAexF5dYlj4wXA559nk1yTPJKsJ/iX3qUmeSD5OOIGJcmsuQCuUe+gp8AeTQAAAABJRU5ErkJggg==)
 }
 
 .session_list {
     width: 100%;
     position: absolute;
-    top: 40px;
+    top: 60px;
 }
 
 .session {
@@ -66,7 +72,7 @@ body {
 }
 
 .session_title {
-    width: 100px;
+    width: 250px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
