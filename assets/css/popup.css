@@ -30,17 +30,10 @@ body {
     border-bottom: 1px solid black;
 }
 
-.nav-menu .burger .line {
-    width: 20px;
-    height: 1px;
-    background: #e4e4e4;
-    margin-left: 12px;
-    margin-bottom: 4px;
-}
-
 .nav-menu .burger {
 	width: 30px;
 	height: 30px;
+    margin-left: 14px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: inline-block;
@@ -50,6 +43,7 @@ body {
 .nav-menu .plus {
 	width: 30px;
 	height: 30px;
+    margin-right: 14px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: inline-block;
