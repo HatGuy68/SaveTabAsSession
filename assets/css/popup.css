@@ -35,6 +35,10 @@ body {
     border-bottom: 1px solid black;
 }
 
+.nav-menu .title {
+    font-size: 18px;
+}
+
 .nav-menu .burger {
     cursor: pointer;
 	width: 30px;
