@@ -73,7 +73,7 @@ function renderSession(sessionName) {
     let session_list = document.getElementById('session_list')
     console.log(session_list);
     let li = document.createElement("li")
-    li.innerHTML = `<li class="session"><div class="session_title" id="title-${sessionName}">${sessionName}</div><div class="session_delete" id="delete-${sessionName}">X</div></li>`
+    li.innerHTML = `<li class="session"><div class="session_title" id="title-${sessionName}">${sessionName}</div><i class="session_delete" id="delete-${sessionName}"></i></li>`
     session_list.appendChild(li)
     document.getElementById(`title-${sessionName}`).addEventListener('click', () => {
         rebootSession(`${sessionName}`)

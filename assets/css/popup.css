@@ -1,3 +1,8 @@
+:root {
+    --bg-color: #1d2127;
+    --fg-color: #23272d;
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -11,14 +16,14 @@
 body {
     width: 350px;
     height: 500px;
-    background-color: #24282d;
+    background-color: var(--bg-color);
     color: #e4e4e4;
 }
 
 .nav-menu {
     height: 53px;
     position: fixed;
-    background: #24282d;
+    background: var(--bg-color);
     text-align: center;
     color: #e4e4e4;
     font-weight: 300;
@@ -31,6 +36,7 @@ body {
 }
 
 .nav-menu .burger {
+    cursor: pointer;
 	width: 30px;
 	height: 30px;
     margin-left: 14px;
@@ -41,26 +47,30 @@ body {
 }
 
 .nav-menu .plus {
+    cursor: pointer;
 	width: 30px;
 	height: 30px;
     margin-right: 14px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: inline-block;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABD0lEQVRoge2ZS07DQBBEu1CWUS5GLM4SzkAQq5wFKbDM5wCcBntf2SSSsVuIacvtjum3HM3I9aa8mLFFkiQxQfKJ5Jlkw+lpSJ5IVqUSbxMH/42tlhlaEyLybuvRjQrAR3vgQZm0cQozhOfugNZILSJLlzh2agCr9oAmQr88dgD8yK69WndJikRjdBFcGfs52Ug0UiQaKRKNFIlGikRjYVlkOXKUrLFcJf53IyU7dmti7AvbbBpJkWikSDRSJBopEo3ZiJiOKCV4fUueTSMpEg1NpHFPUc53d0AT+XIIMpReRk1k5xBkKL2MPREAexF5dYlj4wXA559nk1yTPJKsJ/iX3qUmeSD5OOIGJcmsuQCuUe+gp8AeTQAAAABJRU5ErkJggg==)
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABQklEQVRoge2ZMU7EMBBF54/ogDKx78FyC9CeZbehoEUrqpwFaeESwEHsFi2tTbUSih2QvcQMy7zyx47+8xSxFCJFUb4CUw+cc0siWgFYENFpu0pZ3gG8hBAGa+02tyAr4r2/J6KbWatVAmDT9/1tko8D59wSwEObWnXEGK+ttY+fM86sWzXqUw0zr5NsHAC4aFOnnhjjYpzlJnLWoMuhnI+DnMifREWkMbuIMQbGmMkP70+hE5GGikhDRaShItJQEWmc1GyquXKU7PHex9L3/++JlJzYfhI1p1zC0UxERaShItJQEWmoiDSORqTqilLC3FeTPUczERWRRk5k17xFOW/jIPfH6rVNl4NIOiYiIYShTZd6mDnpmIhYa7cANm0qlQPgruu6pySf2uCcu2LmdYzxkn7/v+KOiJ6ZechJKIryPR/RaECivJWRdAAAAABJRU5ErkJggg==)
 }
 
 .session_list {
-    width: 100%;
+    width: 90%;
+    margin-inline: 5%;
+    height: calc(100% - 65px);
     position: absolute;
     top: 60px;
 }
 
 .session {
-    border: 2px solid white;
-    border-radius: 4px;
-    margin: 4px 15px;
-    padding: 4px 15px;
+    border-bottom: 1px solid #444c56;
+    padding-block: 10px;
+    padding-inline: 15px;
+    width: 90%;
+    margin: 4px auto;
     display: flex;
     justify-content: space-between;
 }
@@ -75,6 +85,13 @@ body {
 
 .session_delete {
     cursor: pointer;
+    width: 18px;
+	height: 18px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+    color: #e9e9e9;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRoge2awW3DMAxFqaDIBAbkzOAN4naUzlGglwToIZkjq7QreAQH+Act0MvvJb0EiSw7jMMAfEeaovggmRdbxLFF0CrUdd2yqqovEXkXkdVA+pHkIaW0aZrmV2N/NREAexH5GLOG5K6u60+tHlQA0AMggHVBbnvK7efobRSnxniv/CEWWoUeTfYdAfAtIq8z9TLET4zx7drDZzqR7DUsmlqad3kKMcbBPp/pRLK4iDVc5AJtCOHSeLwaF8XRrja1/ifLee7YeK52Dr9a1nARa7iINVzEGi5iDRexhotYw0Ws4SLWcBFruIg1XMQaL1qFALQhhAXJMfFwHp+Kfx+xhotYo1TkeNcu8hT9VFAkQvJwWy/TKd27SCSltCG5l3lPpie5SyltZ9zTUeMPdjKCmZ1xn1EAAAAASUVORK5CYII=)
 }
 
 .message {
