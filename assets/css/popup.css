@@ -1,6 +1,8 @@
 :root {
     --bg-color: #1d2127;
     --fg-color: #23272d;
+
+    --icon-size: 30px;
 }
 
 *{
@@ -41,8 +43,8 @@ body {
 
 .nav-menu .burger {
     cursor: pointer;
-	width: 30px;
-	height: 30px;
+	width: var(--icon-size);
+	height: var(--icon-size);
     margin-left: 14px;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -52,13 +54,40 @@ body {
 
 .nav-menu .plus {
     cursor: pointer;
-	width: 30px;
-	height: 30px;
+	width: var(--icon-size);
+	height: var(--icon-size);
     margin-right: 14px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: inline-block;
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABQklEQVRoge2ZMU7EMBBF54/ogDKx78FyC9CeZbehoEUrqpwFaeESwEHsFi2tTbUSih2QvcQMy7zyx47+8xSxFCJFUb4CUw+cc0siWgFYENFpu0pZ3gG8hBAGa+02tyAr4r2/J6KbWatVAmDT9/1tko8D59wSwEObWnXEGK+ttY+fM86sWzXqUw0zr5NsHAC4aFOnnhjjYpzlJnLWoMuhnI+DnMifREWkMbuIMQbGmMkP70+hE5GGikhDRaShItJQEWmc1GyquXKU7PHex9L3/++JlJzYfhI1p1zC0UxERaShItJQEWmoiDSORqTqilLC3FeTPUczERWRRk5k17xFOW/jIPfH6rVNl4NIOiYiIYShTZd6mDnpmIhYa7cANm0qlQPgruu6pySf2uCcu2LmdYzxkn7/v+KOiJ6ZechJKIryPR/RaECivJWRdAAAAABJRU5ErkJggg==)
+}
+
+.menu {
+    position: absolute;
+    top: 53px;
+    height: calc(100% - 53px);
+    width: 75%;
+    border: 25% solid black;
+    background-color: var(--fg-color);
+    z-index: 100;
+}
+
+.menu .row {
+    padding-top: 15px;
+    padding-inline: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.menu .footer {
+    position: absolute;
+    height: 53px;
+    width: 100%;
+    bottom: 0;
 }
 
 .session_list {
