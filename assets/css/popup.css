@@ -67,9 +67,11 @@ body {
     position: absolute;
     top: 53px;
     height: calc(100% - 53px);
+    transform: translateX(-100%);
     width: 75%;
     border: 25% solid black;
     background-color: var(--fg-color);
+    transition: all 200ms;
     z-index: 100;
 }
 
