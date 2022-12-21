@@ -57,7 +57,8 @@ async function saveSession(sessionName) {
     let sessionList = []
     await getAllTab().then( tabs => {
         tabs.tabs.forEach(tab => {
-            sessionList.push({"title": tab.title, "url": tab.url})
+            sessionList.push({"title": tab.title, "url": tab.url, "date_created": Date.now(), "date_modified": Date.now()})
+            console.log(sessionList[sessionList.length - 1]);
         });
     })
     await chrome.storage.local.set({[sessionName]: sessionList}, function() {
@@ -82,9 +83,25 @@ async function listSessions() {
     })
 }
 
+const intervals = [
+    { label: 'year', seconds: 31536000 },
+    { label: 'month', seconds: 2592000 },
+    { label: 'day', seconds: 86400 },
+    { label: 'hour', seconds: 3600 },
+    { label: 'minute', seconds: 60 },
+    { label: 'second', seconds: 0 }
+];
+  
+function timeSince(date) {
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+    const interval = intervals.find(i => i.seconds <= seconds);
+    console.log(interval);
+    const count = Math.floor(seconds / interval.seconds) | 0;
+    return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+}
+
 function renderSession(sessionName) {
     let session_list = document.getElementById('session_list')
-    console.log(session_list);
     let li = document.createElement("li")
     li.innerHTML = `<li class="session"><div class="session_title" id="title-${sessionName}">${sessionName}</div><i class="session_delete" id="delete-${sessionName}"></i></li>`
     session_list.appendChild(li)
@@ -102,3 +119,6 @@ document.getElementById("addSession").addEventListener('click', addSession);
 document.getElementById("toggleMenu").addEventListener('click', toggleMenu);
 
 listSessions()
+const new_date = new Date()
+let d = document.getElementById("time_ago")
+d.innerHTML = timeSince(new_date)
