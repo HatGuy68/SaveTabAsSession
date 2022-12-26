@@ -1,4 +1,5 @@
-let messageDiv = document.getElementById('message') 
+let messageDiv = document.getElementById('message')
+let displayStatus = false
 
 function addSession() {
     sessionName = prompt('Add current tabs to session')
@@ -7,6 +8,18 @@ function addSession() {
         console.log('session save started');
     } else {
         console.log('session not saved');
+    }
+}
+
+
+function toggleMenu() {
+    let element = document.getElementsByClassName("menu")[0];
+    if (displayStatus) {
+        element.style.transform = 'translateX(-100%)';
+        displayStatus = false
+    } else {
+        element.style.transform = 'translateX(0)';
+        displayStatus = true
     }
 }
 
@@ -86,5 +99,6 @@ function renderSession(sessionName) {
 }
 
 document.getElementById("addSession").addEventListener('click', addSession);
+document.getElementById("toggleMenu").addEventListener('click', toggleMenu);
 
 listSessions()
