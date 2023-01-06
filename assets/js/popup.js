@@ -47,6 +47,14 @@ async function rebootSession(sessionName) {
     chrome.windows.create({url: sessionUrls})
 }
 
+async function timeSinceSession(sessionName) {
+    await chrome.storage.local.get([sessionName]).then(list => {
+        if (!isNaN(list[sessionName][0])) {
+            return timeSince(list[sessionName][0])
+        }
+    })
+}
+
 function deleteSession(sessionName) {
     chrome.storage.local.remove([sessionName]).then(() => {
         listSessions()
@@ -61,8 +69,8 @@ async function saveSession(sessionName) {
             console.log(sessionList[sessionList.length - 1]);
         });
     })
-    await chrome.storage.local.set({[sessionName]: [Date(), sessionList]}, function() {
-        console.log('Session saved', {[sessionName]: [Date(), sessionList]});
+    await chrome.storage.local.set({[sessionName]: [Date.now(), sessionList]}, function() {
+        console.log('Session saved', {[sessionName]: [Date.now(), sessionList]});
     });
     listSessions()
 }
@@ -72,11 +80,18 @@ async function listSessions() {
     let sessionNames = []
     await chrome.storage.local.get().then(dict => {
         sessionNames = Object.keys(dict)
+        sessionTimes = Object.values(dict)
+
         if (sessionNames.length > 0) {
             messageDiv.style.visibility = 'hidden';
-            sessionNames.forEach(sessionName => {
-                renderSession(sessionName)
-            })
+            sessionTime = ''
+            for (let i=0; i < sessionNames.length; i++) {
+                console.log(sessionTimes[i][0]);
+                if (!isNaN(sessionTimes[i][0])) {
+                    sessionTime = timeSince(sessionTimes[i][0])
+                }
+                renderSession(sessionNames[i], sessionTime)
+            }
         } else {
             renderMessage('Currently No sessions Saved')
         }
@@ -97,19 +112,20 @@ const intervals = [
 ];
   
 function timeSince(date) {
-    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+    console.log(date);
+    const seconds = Math.floor((Date.now() - date) / 1000);
     const interval = intervals.find(i => i.seconds <= seconds);
     const count = Math.floor(seconds / interval.seconds) | 0;
     return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
 }
 
-function renderSession(sessionName) {
+function renderSession(sessionName, sessionTime) {
     let session_list = document.getElementById('session_list')
     let li = document.createElement("li")
     li.innerHTML = `
         <li class="session">
             <div class="session_title" id="title-${sessionName}">${sessionName}</div>
-            <div id="time_ago">${timeSince(new_date)}</div>
+            <div id="time_ago">${sessionTime}</div>
             <i class="session_delete" id="delete-${sessionName}"></i>
         </li>
     `
