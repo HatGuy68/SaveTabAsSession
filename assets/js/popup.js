@@ -1,6 +1,14 @@
 let messageDiv = document.getElementById('message')
 let displayStatus = false
 
+async function getAllTab() {
+    let queryOptions = {populate:true};
+    // `tab` will either be a `tabs.Tab` instance or `undefined`.
+    let tabs = await chrome.windows.getLastFocused(queryOptions)
+    console.log(tabs);
+    return tabs;
+}
+
 function addSession() {
     sessionName = prompt('Add current tabs to session')
     if (sessionName) {
@@ -9,32 +17,6 @@ function addSession() {
     } else {
         console.log('session not saved');
     }
-}
-
-
-function toggleMenu() {
-    let element = document.getElementsByClassName("menu")[0];
-    if (displayStatus) {
-        element.style.transform = 'translateX(-100%)';
-        displayStatus = false
-    } else {
-        element.style.transform = 'translateX(0)';
-        displayStatus = true
-    }
-}
-
-function renderMessage(m) {
-    let message = `<p>${m}</p>`
-    messageDiv.innerHTML = message;
-    messageDiv.style.visibility = 'visible';
-}
-
-async function getAllTab() {
-    let queryOptions = {populate:true};
-    // `tab` will either be a `tabs.Tab` instance or `undefined`.
-    let tabs = await chrome.windows.getLastFocused(queryOptions)
-    console.log(tabs);
-    return tabs;
 }
 
 async function rebootSession(sessionName) {
@@ -46,6 +28,10 @@ async function rebootSession(sessionName) {
     })
     chrome.windows.create({url: sessionUrls})
 }
+
+// async function updateSession(sessionName) {
+    
+// }
 
 function deleteSession(sessionName) {
     chrome.storage.local.remove([sessionName]).then(() => {
@@ -82,20 +68,44 @@ async function listSessions() {
     })
 }
 
+function toggleMenu() {
+    let element = document.getElementsByClassName("menu")[0];
+    if (displayStatus) {
+        element.style.transform = 'translateX(-100%)';
+        displayStatus = false
+    } else {
+        element.style.transform = 'translateX(0)';
+        displayStatus = true
+    }
+}
+
+function renderMessage(m) {
+    let message = `<p>${m}</p>`
+    messageDiv.innerHTML = message;
+    messageDiv.style.visibility = 'visible';
+}
+
 function renderSession(sessionName) {
     let session_list = document.getElementById('session_list')
     console.log(session_list);
     let li = document.createElement("li")
-    li.innerHTML = `<li class="session"><div class="session_title" id="title-${sessionName}">${sessionName}</div><i class="session_delete" id="delete-${sessionName}"></i></li>`
+    li.innerHTML = `
+        <li class="session">
+            <div class="session_title" id="title-${sessionName}">${sessionName}</div>
+            <i class="session_update" id="update-${sessionName}"></i>
+            <i class="session_delete" id="delete-${sessionName}"></i>
+        </li>
+    `
     session_list.appendChild(li)
     document.getElementById(`title-${sessionName}`).addEventListener('click', () => {
         rebootSession(`${sessionName}`)
     })
+    document.getElementById(`update-${sessionName}`).addEventListener('click', () => {
+        updateSession(`${sessionName}`)
+    })
     document.getElementById(`delete-${sessionName}`).addEventListener('click', () => {
         deleteSession(`${sessionName}`)
     })
-
-    // document.getElementById(`delete-${sessionName}`).addEventListener('click', removeSession(`${sessionName}`))
 }
 
 document.getElementById("addSession").addEventListener('click', addSession);
