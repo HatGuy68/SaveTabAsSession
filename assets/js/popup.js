@@ -113,9 +113,9 @@ const intervals = [
   
 function timeSince(date) {
     console.log(date);
-    const seconds = Math.floor((Date.now() - date) / 1000);
-    const interval = intervals.find(i => i.seconds <= seconds);
-    const count = Math.floor(seconds / interval.seconds) | 0;
+    const secondsSinceDate = Math.floor((Date.now() - date) / 1000);
+    const interval = intervals.find(i => i.seconds <= secondsSinceDate);
+    const count = Math.floor(secondsSinceDate / interval.seconds) | 0;
     return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
 }
 
