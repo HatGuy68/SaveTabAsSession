@@ -161,10 +161,20 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     display: inline-block;
+    padding-inline: 10px;
+    margin-left: 5px;
     color: #e9e9e9;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRoge2awW3DMAxFqaDIBAbkzOAN4naUzlGglwToIZkjq7QreAQH+Act0MvvJb0EiSw7jMMAfEeaovggmRdbxLFF0CrUdd2yqqovEXkXkdVA+pHkIaW0aZrmV2N/NREAexH5GLOG5K6u60+tHlQA0AMggHVBbnvK7efobRSnxniv/CEWWoUeTfYdAfAtIq8z9TLET4zx7drDZzqR7DUsmlqad3kKMcbBPp/pRLK4iDVc5AJtCOHSeLwaF8XRrja1/ifLee7YeK52Dr9a1nARa7iINVzEGi5iDRexhotYw0Ws4SLWcBFruIg1XMQaL1qFALQhhAXJMfFwHp+Kfx+xhotYo1TkeNcu8hT9VFAkQvJwWy/TKd27SCSltCG5l3lPpie5SyltZ9zTUeMPdjKCmZ1xn1EAAAAASUVORK5CYII=);
 }
 
+#time_ago {
+    width: 110px;
+    font-size: 10px;
+    font-style: italic;
+    text-align: right;
+    line-height: 20px;
+    opacity: 0.7;
+}
 
 .message {
     position: absolute;
