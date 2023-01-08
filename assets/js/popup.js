@@ -78,6 +78,7 @@ async function saveSession(sessionName) {
 async function listSessions() {
     document.getElementById('session_list').innerHTML = ''
     let sessionNames = []
+    let sessionTimes = []
     await chrome.storage.local.get().then(dict => {
         sessionNames = Object.keys(dict)
         sessionTimes = Object.values(dict)
@@ -93,7 +94,7 @@ async function listSessions() {
                 renderSession(sessionNames[i], sessionTime)
             }
         } else {
-            renderMessage('Currently No sessions Saved')
+            renderMessage('Currently, you do not have any sessions saved. Click the + button to save your current tabs to a session.')
         }
     })
 }
