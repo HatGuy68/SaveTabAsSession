@@ -121,6 +121,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .menu .footer .footer-message .heart {
     width: 14px;
     height: 14px;
@@ -130,6 +131,7 @@ body {
 
 .session_list {
     width: 90%;
+    overflow-y: scroll;
     margin-inline: 5%;
     height: calc(100% - 65px);
     position: absolute;
@@ -171,8 +173,7 @@ body {
     cursor: pointer;
     width: 18px;
     height: 18px;
-    padding-inline: 6px;
-    margin-inline: 3px;
+    padding-inline: 9px;
     background-size: cover;
     background-repeat: no-repeat;
     display: inline-block;
@@ -185,6 +186,7 @@ body {
     font-size: 10px;
     font-style: italic;
     text-align: right;
+    margin-right: 5px;
     line-height: 20px;
     opacity: 0.7;
 }

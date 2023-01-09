@@ -19,6 +19,34 @@ function addSession() {
     }
 }
 
+let difference = (arr1, arr2) => arr1.filter(x => !arr2.includes(x));
+
+async function updateSession(sessionName) {
+    let oldSessionUrls = []
+    await chrome.storage.local.get([sessionName]).then(list => {
+        list[sessionName][1].forEach(object => {
+            oldSessionUrls.push(object.url)
+        });
+    })
+
+    let newSessionUrls = []
+    await getAllTab().then( tabs => {
+        tabs.tabs.forEach(tab => {
+            newSessionUrls.push(tab.url)
+            console.log(newSessionUrls[newSessionUrls.length - 1]);
+        });
+    })
+
+    difference(oldSessionUrls, newSessionUrls).forEach(url => {
+        console.log("%c- "+url, 'background-color:red')
+    });
+    difference(newSessionUrls, oldSessionUrls).forEach(url => {
+        console.log("%c- "+url, 'background-color:green')
+    });
+    
+    saveSession(sessionName)
+}
+
 async function rebootSession(sessionName) {
     sessionUrls = []
     await chrome.storage.local.get([sessionName]).then(list => {
