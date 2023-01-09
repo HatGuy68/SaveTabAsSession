@@ -138,6 +138,15 @@ body {
     top: 60px;
 }
 
+.session_list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.session_list::-webkit-scrollbar-thumb {
+    background-color: #e4e4e4;
+    border-radius: 3px;
+}
+
 .session {
     border-bottom: 1px solid #444c56;
     padding-block: 10px;

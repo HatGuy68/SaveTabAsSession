@@ -131,7 +131,7 @@ const intervals = [
     { label: 'mo', seconds: 2592000 },
     { label: 'd', seconds: 86400 },
     { label: 'h', seconds: 3600 },
-    { label: 'min', seconds: 60 },
+    { label: ' min', seconds: 60 },
     { label: 's', seconds: 0 }
 ];
   
@@ -140,7 +140,7 @@ function timeSince(date) {
     const secondsSinceDate = Math.floor((Date.now() - date) / 1000);
     const interval = intervals.find(i => i.seconds <= secondsSinceDate);
     const count = Math.floor(secondsSinceDate / interval.seconds) | 0;
-    return `${count} ${interval.label} ago`;
+    return `${count}${interval.label} ago`;
 }
 
 function renderSession(sessionName, sessionTime) {
