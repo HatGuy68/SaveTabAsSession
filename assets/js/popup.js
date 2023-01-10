@@ -133,6 +133,18 @@ const intervals = [
     { label: 'h', seconds: 3600 },
     { label: ' min', seconds: 60 },
     { label: 's', seconds: 0 }
+=======
+const new_date = new Date()
+let d = document.getElementById("time_ago")
+// d.innerHTML = timeSince(new_date)
+
+const intervals = [
+    { label: 'year', seconds: 31536000 },
+    { label: 'month', seconds: 2592000 },
+    { label: 'day', seconds: 86400 },
+    { label: 'hour', seconds: 3600 },
+    { label: 'minute', seconds: 60 },
+    { label: 'second', seconds: 0 }
 ];
   
 function timeSince(date) {
@@ -147,7 +159,6 @@ function renderSession(sessionName, sessionTime) {
     let session_list = document.getElementById('session_list')
     let li = document.createElement("li")
     li.innerHTML = `
-        
         <li class="session">
             
             <div class="session_title" id="title-${sessionName}">${sessionName}</div>
@@ -156,7 +167,6 @@ function renderSession(sessionName, sessionTime) {
             <i class="session_delete" id="delete-${sessionName}"></i>
         
         </li>
-    
     `
     session_list.appendChild(li)
     document.getElementById(`title-${sessionName}`).addEventListener('click', () => {
@@ -170,8 +180,7 @@ function renderSession(sessionName, sessionTime) {
     })
 }
 
-
-listSessions()
-
 document.getElementById("addSession").addEventListener('click', addSession);
 document.getElementById("toggleMenu").addEventListener('click', toggleMenu);
+
+listSessions()
