@@ -95,8 +95,8 @@ async function listSessions() {
 
         if (sessionNames.length > 0) {
             messageDiv.style.visibility = 'hidden';
-            sessionTime = ''
             for (let i=0; i < sessionNames.length; i++) {
+                let sessionTime = ''
                 console.log(sessionTimes[i][0]);
                 if (!isNaN(sessionTimes[i][0])) {
                     sessionTime = timeSince(sessionTimes[i][0])
@@ -133,18 +133,6 @@ const intervals = [
     { label: 'h', seconds: 3600 },
     { label: ' min', seconds: 60 },
     { label: 's', seconds: 0 }
-=======
-const new_date = new Date()
-let d = document.getElementById("time_ago")
-// d.innerHTML = timeSince(new_date)
-
-const intervals = [
-    { label: 'year', seconds: 31536000 },
-    { label: 'month', seconds: 2592000 },
-    { label: 'day', seconds: 86400 },
-    { label: 'hour', seconds: 3600 },
-    { label: 'minute', seconds: 60 },
-    { label: 'second', seconds: 0 }
 ];
   
 function timeSince(date) {
