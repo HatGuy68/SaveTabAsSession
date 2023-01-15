@@ -206,10 +206,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-inline: 10%;
     height: 100%;
     width: 100%;
     visibility: hidden;
 }
+
+.arrow {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    max-width: 35%;
+    height: 222px;
+}​ 
 
 .switch .settings_checkbox {
     opacity: 0;
