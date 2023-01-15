@@ -104,7 +104,7 @@ async function listSessions() {
                 renderSession(sessionNames[i], sessionTime)
             }
         } else {
-            renderMessage('Currently, you do not have any sessions saved. Click the + button to save your current tabs to a session.')
+            renderMessage('Save a new Session')
         }
     })
 }
@@ -121,8 +121,8 @@ function toggleMenu() {
 }
 
 function renderMessage(m) {
-    let message = `<p>${m}</p>`
-    messageDiv.innerHTML = message;
+    messageContentDiv = document.getElementById('content')
+    messageContentDiv.innerHTML = m;
     messageDiv.style.visibility = 'visible';
 }
 
